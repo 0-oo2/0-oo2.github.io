@@ -1,0 +1,340 @@
+@charset "UTF-8";
+/**
+ *  Pryn2.css
+ *  @see        http://0-oo.net/sbox/css/pryn2 (Coming soon?)
+ *  @version    2.0.0 beta 4
+ *  @copyright  2011-2014 dgbadmin@gmail.com
+ *  @license    http://0-oo.net/pryn/MIT_license.txt (The MIT license)
+ */
+
+/*******************************************************************************
+ *  Normalize.cssからHTML5要素やマイナーな要素を削って簡易化
+ *  @see http://necolas.github.com/normalize.css/ (2011-11-04版)
+ *  @see http://nvm.jp/web/xhtml_css/normalize-css-japanese/ （少し古い日本語訳）
+ *  @see http://terkel.jp/archives/2011/12/css-reset-2011-winter/
+ ******************************************************************************/
+
+html {
+	overflow-y: scroll;
+	font-size: 100%;
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+	margin: 0 auto;	/* 横はautoにした */
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover, a:active, object {	/* objectを追加 */
+	outline: 0;
+}
+h1, h2, h3, h4, h5, h6 {	/* terkel.jp版 */
+	margin: 0;
+	font-size: 1em;
+}
+b, strong { 
+	font-weight: bold; 
+}
+blockquote {
+	margin: 1em 40px;
+}
+pre {
+	font-family: monospace, serif;
+	font-size: 1em;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+q {
+	quotes: none;
+}
+q:before, q:after {
+	content: '';
+	content: none;
+}
+hr {	/* terkel.jp版 */
+	height: auto;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	color: #ccc;	/* Firefoxで黒くなるので変更 */
+}
+ul, ol {
+	margin-left: 0;
+	padding: 0 0 0 40px;
+}
+dd {
+	margin: 0 0 0 40px;
+}
+br {	/* terkel.jp版 */
+	*letter-spacing: 0;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+form {
+	margin: 0;
+}
+button, input, select, textarea {
+	margin: 0 1px 0 0;	/* 右は1pxにした */
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+input {
+	line-height: normal;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	*overflow: visible;
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+input[type="checkbox"], input[type="radio"] {
+	padding: 0;
+	box-sizing: border-box;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th, td {
+	vertical-align: baseline;	/* terkel.jp版 */
+}
+
+
+/*******************************************************************************
+ *  その他の汎用的なstyle
+ ******************************************************************************/
+
+html {
+	background-color: #ccc;
+}
+body {
+	background-color: #fff;
+	line-height: 1.4;	/* 単位を付けない */
+}
+th, td {
+	border: 1px solid #728490;
+	padding: 0.5em;
+}
+optgroup {
+	font: inherit;
+	color: #728490;
+}
+option {
+	color: #000;	/* optgroupから引き継ぐ文字色を元に戻す */
+}
+div.error, span.error {	/* 入力エラーメッセージ */
+	color: #f30;
+	font-weight: bold;
+}
+pre {
+	background-color: #ccc;
+}
+.center, .footer {
+	text-align: center;
+}
+
+/**
+ *  float
+ */
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+
+/**
+ *  フォント
+ */
+body, select, input, button, textarea {
+	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+@media print {	/* 印刷 */
+	body, select, input, button, textarea {
+		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+	}
+}
+
+/**
+ *  リンクの色
+ */
+a {
+	color: #03c;	/* Bingの色 */
+}
+a:visited {
+	color: #639;	/* Bingの色 */
+}
+a:hover, a:active {
+	color: #c11;	/* Googleのactiveの色 */
+}
+
+/**
+ *  form要素
+ */
+input[type="text"], input[type="password"], textarea {
+	width: 10em;
+}
+textarea {
+	height: 3.8em;	/* 3行 */
+}
+input.number {	/* 数値 */
+	text-align: right;
+}
+select.error, input.error, textarea.error {	/* 入力エラー（Firefox:check系非対応）*/
+	background-color: #ffd3cc;
+	border-color: #f30;
+}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	background-color: #ff9;
+	border-color: #5f7d99;
+}
+input.placeholder, textarea.placeholder {	 /* 擬似placeholder（jQeury Prynと連動） */
+	color: #728490;
+}
+input[readonly], input[readonly]:focus, 
+input[type="text"][disabled], input[type="password"][disabled],
+textarea[readonly], textarea[readonly]:focus, textarea[disabled] {
+	background-color: #eee;	/* readonly or disabled */
+}
+input[type="submit"], input[type="button"], input[type="reset"], button {
+	padding: 1px 1em;	/* クリックしやすいように広げる */
+	line-height: 1.5;	/* for IE */
+}
+label:hover {	/* マウスカーソルを当てられたlabel */
+	background-color: #ff9;
+}
+
+/**
+ *  テキストボックス系とセレクトボックスは背景色を指定しても枠線が変わらないようにする
+ */
+select, input[type="text"], input[type="password"], textarea {
+	border: solid 1px #7f9db9;
+}
+input[type="text"], input[type="password"], input[type="file"], textarea {
+	padding: 2px;
+}
+
+/**
+ *  マウスカーソル制御
+ */
+select, label, .clickable, input[type="image"], input[type="checkbox"],
+input[type="radio"], input[type="file"] {
+	cursor: pointer;	/* 指差し（IE7-:select非対応、Firefox:file非対応）*/
+}
+select[disabled], input[disabled], textarea[disabled], button[disabled] {
+	cursor: not-allowed;	/* 禁止マーク（IE7:一部のみ） */
+}
+body.wait, select.wait, input.wait, textarea.wait, a.wait {
+	cursor: wait;	/* 砂時計やクルクル（OSに依存）にする（jQuery Prynと連動） */
+}
+
+/**
+ *  Clear fix
+ *  @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;	/* for IE7- */
+}
+
+/**
+ *  Sticky Footer
+ *  @see http://0-oo.net/sbox/css-small-box/yahho-sticky-footer
+ */
+html.stickyfooter {
+	height: 100%;
+}
+html.stickyfooter body {
+	position: relative;
+	min-height: 100%;
+}
+html.stickyfooter body > .wrap {	/* フッター以外を全て包む要素 */
+	padding-bottom: 2em;	/* フッターのheightより大きくする */
+}
+html.stickyfooter body > .footer {	/* フッター */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2em;
+}
+
+/**
+ *  IME
+ */
+input, textarea {
+	ime-mode: active;	/* デフォルトは IME On */
+}
+select, input.han, input.number, textarea.han {
+	ime-mode: inactive;	/* 指定がある場合だけ IME Off */
+}
+input[type="password"] {
+	ime-mode: auto;	/* Firefox:パスワードでautoだとIME不可になる */
+}
+
+/**
+ *  バリアフリーな色（必要に応じて追加する予定）
+ *  @see http://jfly.iam.u-tokyo.ac.jp/colorset/
+ *  @see http://0-oo.net/sbox/javascript/universal-colors
+ */
+.bf-red {
+	color: #f30;
+}
+.bf-green {
+	color: #396;
+}
+.bf-gray {
+	color: #728490;
+}
+.bf-pink {
+	color: #f99;
+}
+
+/**
+ *  忘れやすいプロパティ
+ */
+.nowrap {	/* 改行防止 */
+	white-space: nowrap;
+}
+.text-more {	/* テキストがはみ出す場合は途中まで表示して"..."を付ける */
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+table.text-more-table {	/* .text-moreをtableに適用する場合 */
+	table-layout: fixed;
+	width: 100%;	/* 何らかの指定が必要。必要に応じて上書きする */
+}
+.break-word {	/* 半角英数字が続く文字列の強制改行 */
+	word-wrap: break-word;
+}
+table.break-word {	/* table内で半角英数字が続く文字列の強制改行 */
+	word-break: break-all;	/* Firefox:非対応 */
+}
+.border-radius {	/* 角丸（IE8-:非対応） */
+	border-radius: 10px;
+}
+.border-top-left-radius {	/* 部分的に角丸（IE8-:非対応） */
+	border-top-left-radius: 10px;
+}

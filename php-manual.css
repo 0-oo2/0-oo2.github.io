@@ -1,0 +1,245 @@
+@charset "UTF-8";
+/**
+ *  PHP-Manual.css
+ *  @see       http://0-oo.net/sbox/css-small-box/php-manual
+ *  @version   0.3.0 beta 1
+ *  @copyright 2010-2013 dgbadmin@gmail.com
+ *  @license   http://0-oo.net/pryn/MIT_license.txt (The MIT license)
+ */
+ 
+/* フォント */
+body{                 
+	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+@media print{	/* 印刷 */
+	body{
+		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+	}
+}
+
+/* 基礎 */
+html{
+	overflow-y: scroll;	/* Firefox:常に縦のスクロールバーを表示 */
+}
+a{
+	outline: none;	/* クリックされた時に破線を表示しない */
+}
+
+/* リンクの色 */
+a{
+	color: #03c;
+}
+a:visited{
+	color: #639;
+}
+a:hover, a:active{
+	color: #c11;
+}
+
+/* php manual用 */
+html{
+	padding: 0 1em;
+	background-color: #333;
+}
+body{
+	margin: 0;
+	padding: 1em 5em;
+	background-color: #fff;
+	line-height: 1.7;
+}
+h1{
+	padding: 0.3em 1em;
+	color: #fff;
+	background-color: #396;
+	border-radius: 10px;
+}
+h2{
+	margin-bottom: 0.5em;
+	padding-left: 0.5em;
+	border-left: solid 10px #396;
+	color: #396;
+}
+h3{
+	padding-left: 0.5em;
+	color: #396;
+	border-bottom: dotted 1px #396;
+}
+h4{
+	margin: 3em 0 0;
+	padding: 0.5em;
+	color: #396;
+	font-size: 110%;
+	border: solid 1px #396;
+	border-width: 1px 0;
+}
+h5{
+	margin-bottom: 0;
+	font-size: 110%;
+}
+hr{
+	margin: 1em 0;
+	color: #ccc;
+}
+li{
+	margin-bottom: 0.2em;
+}
+dt{
+	padding: 1em 0 0.5em;
+	border-bottom: dotted 1px #ccc;
+	font-weight: bold;
+}
+dt i{
+	padding-right: 1em;
+	font-style: normal;
+}
+dd{
+	margin: 0 0 1.5em 1em;
+}
+caption{
+	text-align: left;
+}
+table{
+	border-collapse: collapse;
+}
+th, td{
+	padding: 0.5em;
+	border: solid 1px #666;
+}
+th{
+	background-color: #ddd;
+	white-space: nowrap;
+}
+td{
+	background-color: #fff;
+}
+blockquote, div.warning, div.caution{
+	margin: 1em 0;
+	padding: 0 1em;
+	border: solid 1px #f30;
+	border-radius: 10px;
+}
+pre{
+	margin: 0;
+}
+ 
+div.manualnavbar{
+	padding: 0 1em;
+	font-size: 90%;
+}
+div.prev a[href*="."]:after{
+	content: " <<";
+}
+div.next a[href*="."]:before{
+	content: ">> ";
+}
+div.home a:after{
+	content: " トップページ";
+}
+div.section, div.sect2, div.refsect1{
+	margin-bottom: 1em;
+	padding: 0 1em 1em;
+	border: solid 1px #666;
+	border-radius: 10px;
+}
+div.classsynopsis, div.constructorsynopsis, div.methodsynopsis{
+	margin-bottom: 1em;
+	padding: 0.5em;
+	border: solid 1px #666;
+	background-color: #ddd;
+	line-height: 1.4;
+	border-radius: 10px;
+}
+div.classsynopsis div.constructorsynopsis,
+div.classsynopsis div.fieldsynopsis,
+div.classsynopsis div.methodsynopsis,
+div.constructorsynopsis div.methodsynopsis{
+	margin: 0;
+	padding: 0 0 0 1em;
+	border: none;
+}
+div.classsynopsis span.type,
+div.constructorsynopsis span.type,
+div.methodsynopsis span.type{
+	color: #070;
+}
+div.classsynopsis tt.parameter,
+div.constructorsynopsis tt.parameter,
+div.methodsynopsis tt.parameter{
+	color: #00b;
+}
+div.ooclass{
+	margin-bottom: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: solid 1px #fff;
+}
+div.classsynopsisinfo_comment{
+	padding: 1em 0 0 1em;
+	color: #f80;
+}
+span.initializer{
+	color: #396;
+}
+div.phpcode, div.cdata{
+	margin-bottom: 1em;
+	padding: 0.5em 1em;
+	border: solid 1px #666;
+	line-height: 1.4;
+	border-radius: 10px;
+}
+div.phpcode{
+	background-color: #ff9;
+}
+div.cdata{
+	background-color: #ddd;
+}
+div.inicode, div.screen, div.apache-confcode{
+	margin-bottom: 1em;
+	padding: 0.5em 1em;
+	border: solid 1px #666;
+	background-color: #ddd;
+	line-height: 1.4;
+	word-wrap: break-word;
+}
+div.screen div.cdata{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+div.warning, div.caution{
+	padding-top: 1em;
+	background-color: #ffd3cc;
+}
+div.warning h1, div.caution h1{
+	margin: 0;
+	padding: 0;
+	color: #396;
+	font-size: 116%;
+	background-color: #ffd3cc;
+	background-image: none;
+}
+div.tip{
+	padding: 0.5em 1em 0;
+	border: solid 1px #ccc;
+	border-radius: 10px;
+}
+
+/* 左右の下端にスクロールに付随しないエリアを設ける */
+div.fixed-corner{
+	position: fixed;
+	bottom: 0;
+	padding: 0.5em 1em 0.3em;
+	background-color: #eee;
+	border: solid 1px #666;
+	border-bottom-width: 0;
+	zoom: 1;	/* filterのためのhasLayout対策 */
+	filter: alpha(opacity=85);
+	opacity: 0.85;
+}
+div#fixed-corner-left{
+	left: 0;
+	border-top-right-radius: 1em;
+}
+div#fixed-corner-right{
+	right: 0;
+	border-top-left-radius: 1em;
+}

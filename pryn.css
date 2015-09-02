@@ -1,0 +1,283 @@
+@charset "UTF-8";
+/**
+ *  Pryn.css
+ *  @see        http://0-oo.net/sbox/javascript/pryn-js-css
+ *  @version    1.1.0 beta 6
+ *  @copyright  2007-2014 dgbadmin@gmail.com
+ *  @license    http://0-oo.net/pryn/MIT_license.txt (The MIT license)
+ */
+
+/*******************************************************************************
+ *  YUI 3 CSS Componentsのimportと、YUI適用後の調整
+ *  @see http://yuilibrary.com/yui/css/
+ *  @see http://yuilibrary.com/yui/docs/cssfonts/#fontsize
+ ******************************************************************************/
+
+/**
+ *  GoogleのCDNから読み込む（httpsも使えてyahooapis.comより速い。
+ *  ただし3.3.0/2.9.0より新しいバージョンはサポートしない）
+ *  @see http://code.google.com/intl/ja/apis/libraries/devguide.html
+ */
+@import "//ajax.googleapis.com/ajax/libs/yui/3.3.0/build/cssreset/reset-min.css";
+@import "//ajax.googleapis.com/ajax/libs/yui/3.3.0/build/cssfonts/fonts-min.css";
+@import "//ajax.googleapis.com/ajax/libs/yui/3.3.0/build/cssgrids/grids-min.css";
+@import "//ajax.googleapis.com/ajax/libs/yui/3.3.0/build/cssbase/base-min.css";
+
+/** 
+ *  下位互換のためYUI2のgrids.cssも読み込む
+ *  @see http://developer.yahoo.com/yui/grids/builder/
+ */
+@import "//ajax.googleapis.com/ajax/libs/yui/2.9.0/build/grids/grids-min.css";
+
+/**
+ *  微調整
+ */
+body {
+	margin: 0 auto;	 /* センタリング（真ん中寄せ） */
+	text-align: left;	/* YUI2 grids.cssでのIE6用センタリングをリセット */
+}
+ul, ol {
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+
+/*******************************************************************************
+ *  汎用的なstyle
+ ******************************************************************************/
+
+html {
+	overflow-y: scroll;	/* Firefox:常に縦のスクロールバーを表示 */
+}
+textarea {
+	overflow: auto;	 /* IE:スクロールバー不要なら非表示 */
+}
+img {
+	border: none;	/* リンク画像の枠線は非表示 */
+	-ms-interpolation-mode: bicubic;	/* IE:サイズを変えた画像を綺麗にする */
+}
+br {	/* IE:letter-spacingを指定した要素内で偶数番目のbr要素が無視されるバグの回避 */
+	letter-spacing: 0;
+}
+hr {
+	color: #eee;	/* Firefox:色を他のブラウザに近付ける */
+}
+optgroup {
+	font: inherit;
+}
+input.number {	/* 数値 */
+	text-align: right;
+}
+input.hint, input.placeholder, textarea.hint, textarea.placeholder {
+	color: #728490;	 /* テキストボックス内の説明文 */
+}
+input[readonly], input[type="text"][disabled], input[type="search"][disabled],
+input[type="password"][disabled], textarea[readonly], textarea[disabled] {
+	background-color: #eee;	/* 使用不可系（IE6:非対応）*/
+}
+.center {
+	text-align: center;
+}
+
+/**
+ *  float
+ */
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+
+/**
+ *  clear fix
+ *  @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+	zoom: 1;	/* for IE7- */
+}
+
+/**
+ *  テキストボックスとセレクトボックスは背景色を指定しても枠線が変わらないようにする
+ *  （IE6:非対応）
+ */
+select, input[type="text"], input[type="search"], input[type="password"], textarea {
+	border: solid 1px #7f9db9;
+}
+input[type="text"], input[type="search"], input[type="password"], input[type="file"], textarea {
+	padding: 2px;
+}
+
+/**
+ *  マウスカーソル制御
+ */
+select, label, button, input.copy, textarea.copy, .clickable {
+	cursor: pointer;	/* 指差し（IE7-:select非対応）*/
+}
+input[type="submit"], input[type="button"], input[type="reset"], input[type="image"],
+input[type="checkbox"], input[type="radio"], input[type="file"] {
+	cursor: pointer;	/* 指差し（IE6:非対応、Firefox:file非対応）*/
+}
+select[disabled], input[disabled], textarea[disabled], button[disabled] {
+	cursor: not-allowed;	/* 禁止マーク（IE6:非対応、IE7+:一部のみ） */
+}
+body.wait, select.wait, input.wait, textarea.wait, a.wait {
+	cursor: wait;	/* 砂時計やクルクルにする（OSに依存） */
+}
+
+/**
+ *  フォーカス時には破線を表示するがクリック時には表示しない
+ *  @see http://white-stage.com/article.php/outline
+ */
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover, a:active, object {
+	outline: none;	/* IE7-:非対応 */
+}
+/**
+ *  忘れやすいプロパティ
+ */
+table.collapse {	/* cellspacing="0" cellpadding="0" */
+	border-collapse: collapse;
+}
+.nowrap {	/* 改行防止 */
+	white-space: nowrap;
+}
+.text-more {	/* テキストがはみ出す場合は途中まで表示して"..."を付ける */
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+table.text-more-table {	/* .text-moreをtableに適用する場合 */
+	table-layout: fixed;
+	width: 100%;	/* 何らかの指定が必要。必要に応じて上書きする */
+}
+.break-word {	/* 半角英数字が続く文字列の強制改行 */
+	word-wrap: break-word;
+}
+table.break-word {	/* table内で半角英数字が続く文字列の強制改行 */
+	word-break: break-all;	/* Firefox:非対応 */
+}
+.border-radius {	/* 角丸（IE8-:非対応） */
+	border-radius: 10px;
+}
+.border-top-left-radius {	/* 部分的に角丸（IE8-:非対応） */
+	border-top-left-radius: 10px;
+}
+
+/**
+ *  バリアフリーな色（必要に応じて追加する予定）
+ *  @see http://jfly.iam.u-tokyo.ac.jp/colorset/
+ *  @see http://0-oo.net/sbox/javascript/universal-colors
+ */
+.bf-red {
+	color: #f30;
+}
+.bf-green {
+	color: #396;
+}
+.bf-gray {
+	color: #728490;
+}
+.bf-pink {
+	color: #f99;
+}
+
+
+/*******************************************************************************
+ *  サイトごとのstyle（サイトに合わせて上書きする）
+ ******************************************************************************/
+
+#bd {
+	font-size: 116%;	/* @see http://yuilibrary.com/yui/docs/cssfonts/#fontsize */
+	line-height: 1.4;	/* 単位を付けない */
+}
+select, input, textarea, button {
+	margin-right: 1px;
+}
+optgroup {
+	color: #728490;
+}
+option {
+	color: #000;	/* optgroupから引き継ぐ文字色を元に戻す */
+}
+div.error, span.error {	/* 入力エラーメッセージ */
+	color: #f30;
+	font-weight: bold;
+}
+select.error, input.error, textarea.error {	/* 入力エラー（Firefox:check系非対応）*/
+	background-color: #ffd3cc;
+	border-color: #f30;
+}
+input.focused, textarea.focused {	/* フォーカスされた入力要素 */
+	background-color: #ff9;
+	border-color: #5f7d99;
+}
+label:hover {	/* マウスカーソルを当てられたlabel */
+	background-color: #ff9;
+}
+pre {
+	background-color: #ccc;
+}
+table.stripes tr.stripe {	/* シマシマにされる行 */
+	background-color: #ccc;
+}
+
+/**
+ *  フォント
+ */
+body, select, input, button, textarea {
+	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+@media print {	/* 印刷 */
+	body, select, input, button, textarea {
+		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+	}
+}
+
+/**
+ *  リンクの色
+ */
+a {
+	color: #03c;	/* Bingの色 */
+}
+a:visited {
+	color: #639;	/* Bingの色 */
+}
+a:hover, a:active {
+	color: #c11;	/* Googleのactiveの色 */
+}
+
+/**
+ *  ボタンの大きさ（IE6:非対応）
+ */
+input[type="submit"], input[type="button"], input[type="reset"], button {
+	padding: 1px 1em;	/* クリックしやすいように広げる */
+	line-height: 1.5;	/* for IE */
+	overflow: visible;	/* for IE7 */
+}
+
+/**
+ *  IME
+ */
+input, textarea {
+	ime-mode: active;	/* デフォルトは IME On */
+}
+select, input.han, input.number, textarea.han {
+	ime-mode: inactive;	/* 指定がある場合だけ IME Off */
+}
+input[type="password"] {
+	ime-mode: auto;	/* Firefox:パスワードでautoだとIME不可になる */
+}

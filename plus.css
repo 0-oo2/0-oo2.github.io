@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/**
+ *	plus.css
+ *	@see        http://0-oo.net/sbox/css/plus (Coming soon?)
+ *	@version    0.1.0 beta 2
+ *	@copyright  2013-2014 dgbadmin@gmail.com
+ *	@license    http://0-oo.net/pryn/MIT_license.txt (The MIT license)
+ */
+
+html {
+	overflow-y: scroll;
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+a:not(.btn) {	/* Twitter Bootstrap対応 */
+	text-decoration: underline;
+}
+img {
+	-ms-interpolation-mode: bicubic;
+}
+.error {
+	color: #f30;
+}
+
+/**
+ *	フォント
+ */
+body, input, button, select, textarea {
+	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+@media print {	/* 印刷 */
+	body, input, button, select, textarea {
+		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+	}
+}
+
+/**
+ *	IME制御
+ */
+input.zen, textarea.zen {
+	ime-mode: active;
+}
+input.han, textarea.han {
+	ime-mode: inactive;
+}
+
+/**
+ *	jQuery UI Datepickerの日本用スタイル調整
+ */
+.ui-datepicker td span, .ui-datepicker td a {
+	text-align: center;
+}
+.ui-datepicker select.ui-datepicker-year, .ui-datepicker select.ui-datepicker-month {
+	width: auto;
+}
+.ui-datepicker select.ui-datepicker-month {
+	margin-left: 1em;
+}
