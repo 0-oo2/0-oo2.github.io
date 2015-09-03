@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>Google Mapper V3をHTTPSで表示するサンプル - ゼロと無限の間に</title>
+<style>
+body{
+	padding: 0 1em;
+}
+</style>
+</head>
+
+<body>
+<h1>Google Mapper V3をHTTPSで表示するサンプル</h1>
+
+<input type="text" id="keywords" style="width:400px" />
+<input type="button" value="地名で検索" onclick="GoogleMapper.demo.search()" />
+<input type="button" value="スポットを表示" onclick="GoogleMapper.showPlaces()" />
+<br />
+<div id="gmap" style="width:60%; height:500px; float:left"></div>
+<div id="street-view" style="width:40%; float:left">
+<div id="route" style="width:100%; height:500px; overflow-x:hidden; overflow-y:scroll"></div>
+</div>
+
+<a href="http://0-oo.net/sbox/javascript/google-mapper-v3">&lt;&lt; Google Mapper V3のページに戻る</a>
+
+
+<script src="google-mapper-v3.js"></script>
+<script>
+GoogleMapper.load(function() {
+	GoogleMapper.demo("gmap", "street-view", "route", "keywords");
+}, "places");
+</script>
+</body>
+</html>
