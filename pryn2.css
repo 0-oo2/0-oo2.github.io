@@ -2,8 +2,8 @@
 /**
  *  Pryn2.css
  *  @see        http://0-oo.net/sbox/css/pryn2 (Coming soon?)
- *  @version    2.0.0 beta 4
- *  @copyright  2011-2014 dgbadmin@gmail.com
+ *  @version    2.0.0
+ *  @copyright  2011-2015 dgbadmin@gmail.com
  *  @license    http://0-oo.net/pryn/MIT_license.txt (The MIT license)
  */
 
@@ -163,11 +163,11 @@ pre {
  *  フォント
  */
 body, select, input, button, textarea {
-	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+	font-family: "游ゴシック", "メイリオ", sans-serif;
 }
 @media print {	/* 印刷 */
 	body, select, input, button, textarea {
-		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+		font-family: "游明朝", serif;
 	}
 }
 

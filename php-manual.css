@@ -2,24 +2,27 @@
 /**
  *  PHP-Manual.css
  *  @see       http://0-oo.net/sbox/css-small-box/php-manual
- *  @version   0.3.0 beta 1
- *  @copyright 2010-2013 dgbadmin@gmail.com
+ *  @version   0.3.0
+ *  @copyright 2010-2015 dgbadmin@gmail.com
  *  @license   http://0-oo.net/pryn/MIT_license.txt (The MIT license)
  */
  
 /* フォント */
 body{                 
-	font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+	font-family: "游ゴシック","メイリオ", sans-serif;
 }
 @media print{	/* 印刷 */
 	body{
-		font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", serif;
+		font-family: "游明朝", serif;
 	}
 }
 
 /* 基礎 */
 html{
 	overflow-y: scroll;	/* Firefox:常に縦のスクロールバーを表示 */
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 a{
 	outline: none;	/* クリックされた時に破線を表示しない */
