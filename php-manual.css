@@ -2,14 +2,15 @@
 /**
  *  PHP-Manual.css
  *  @see       http://0-oo.net/sbox/css-small-box/php-manual
- *  @version   0.3.0
- *  @copyright 2010-2015 dgbadmin@gmail.com
+ *  @version   0.4.0
+ *  @copyright 2010-2016 dgbadmin@gmail.com
  *  @license   http://0-oo.net/pryn/MIT_license.txt (The MIT license)
  */
  
 /* フォント */
 body{                 
 	font-family: "游ゴシック","メイリオ", sans-serif;
+	font-weight: 500;
 }
 @media print{	/* 印刷 */
 	body{
