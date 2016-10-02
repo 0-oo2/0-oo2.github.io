@@ -1,8 +1,8 @@
 /**
  *  GCalendar Holidays - Googleカレンダーから日本の祝日を取得
  *  @see       http://0-oo.net/sbox/javascript/google-calendar-holidays
- *  @version   0.6.0
- *  @copyright 2008-2014 dgbadmin@gmail.com
+ *  @version   0.6.1
+ *  @copyright 2008-2016 dgbadmin@gmail.com
  *  @license   http://0-oo.net/pryn/MIT_license.txt (The MIT license)
  */
 var GCalHolidays = {
@@ -11,9 +11,9 @@ var GCalHolidays = {
 
     /** jQuery UI Datepicker用のstyle（Themeに合わせてお好みで上書きして使う） */
     datepickerStyles: {
-        sunday:   "background-image: none; background-color: #f99", //日曜日
-        saturday: "background-image: none; background-color: #6cf", //土曜日
-        holiday:  "background-image: none; background-color: #f9f"  //祝日
+        sunday:   "background-image: none; background-color: #fde", //日曜日
+        saturday: "background-image: none; background-color: #dff", //土曜日
+        holiday:  "background-image: none; background-color: #fcf"  //祝日
     }
 };
 /**
